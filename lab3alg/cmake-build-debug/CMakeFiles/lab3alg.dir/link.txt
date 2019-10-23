@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/lab3alg.dir/main.cpp.o  -o lab3alg 

@@ -1,0 +1,40 @@
+"C:\Program Files\JetBrains\CLion 2019.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" "C:\Users\Nick\Google Диск\lab2alg"
+-- The C compiler identification is MSVC 19.22.27905.0
+-- The CXX compiler identification is MSVC 19.22.27905.0
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.22.27905/bin/Hostx86/x86/cl.exe
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.22.27905/bin/Hostx86/x86/cl.exe -- broken
+CMake Error at C:/Program Files/JetBrains/CLion 2019.2.3/bin/cmake/win/share/cmake-3.15/Modules/CMakeTestCCompiler.cmake:60 (message):
+  The C compiler
+
+    "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.22.27905/bin/Hostx86/x86/cl.exe"
+
+  is not able to compile a simple test program.
+
+  It fails with the following output:
+
+    Change Dir: C:/Users/Nick/Google Р”РёСЃРє/lab2alg/cmake-build-debug/CMakeFiles/CMakeTmp
+    
+    Run Build Command(s):nmake /nologo cmTC_deb44\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.22.27905\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_deb44.dir\build.make /nologo -L                  CMakeFiles\cmTC_deb44.dir\build
+    Building C object CMakeFiles/cmTC_deb44.dir/testCCompiler.c.obj
+    	C:\PROGRA~2\MICROS~4\2019\BUILDT~1\VC\Tools\MSVC\1422~1.279\bin\Hostx86\x86\cl.exe @C:\Users\Nick\AppData\Local\Temp\nm2D88.tmp
+    cl: РєРѕРјР°РЅРґРЅР°СЏ СЃС‚СЂРѕРєР° warning D9024: РЅРµСЂР°СЃРїРѕР·РЅР°РЅРЅС‹Р№ С‚РёРї РёСЃС…РѕРґРЅС‹С… С„Р°Р№Р»РѕРІ "C:\Users\Nick\Google Р ", РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РѕР±СЉРµРєС‚РЅРѕРіРѕ С„Р°Р№Р»Р°
+    cl: РєРѕРјР°РЅРґРЅР°СЏ СЃС‚СЂРѕРєР° warning D9027: РїСЂРѕРїСѓСЃРє РёСЃС…РѕРґРЅРѕРіРѕ С„Р°Р№Р»Р° "C:\Users\Nick\Google Р "
+    testCCompiler.c
+    c1: fatal error C1083: РќРµ СѓРґР°РµС‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р» РёСЃС‚РѕС‡РЅРёРє: вЂќР С‘РЎРѓР С”\lab2alg\cmake-build-debug\CMakeFiles\CMakeTmp\testCCompiler.c: No such file or directory,
+    NMAKE : fatal error U1077: C:\PROGRA~2\MICROS~4\2019\BUILDT~1\VC\Tools\MSVC\1422~1.279\bin\Hostx86\x86\cl.exe : пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ "0x2"
+    Stop.
+    NMAKE : fatal error U1077: "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.22.27905\bin\HostX86\x86\nmake.exe" : пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ "0x2"
+    Stop.
+    
+    
+
+  
+
+  CMake will not be able to correctly generate this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/Users/Nick/Google Р”РёСЃРє/lab2alg/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "C:/Users/Nick/Google Р”РёСЃРє/lab2alg/cmake-build-debug/CMakeFiles/CMakeError.log".

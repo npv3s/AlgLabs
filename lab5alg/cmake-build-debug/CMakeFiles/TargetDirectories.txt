@@ -1,0 +1,3 @@
+/mnt/c/Users/Nick/Google Диск/lab5alg/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Nick/Google Диск/lab5alg/cmake-build-debug/CMakeFiles/lab5alg.dir
+/mnt/c/Users/Nick/Google Диск/lab5alg/cmake-build-debug/CMakeFiles/edit_cache.dir
