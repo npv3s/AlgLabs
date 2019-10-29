@@ -19,5 +19,4 @@ int main() {
         y = pow(0.589, pow(10, -4));
     }
     cout << "y = " << y << endl;
-
 }

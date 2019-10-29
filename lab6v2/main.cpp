@@ -9,7 +9,6 @@ int main() {
     cout << "Введите y: ";
     cin >> y;
     float rad = sqrt(abs(pow(x,2)+pow(y,2)));
-    cout << rad << endl;
     if (rad<=1) {
         cout << "2 очка" << endl;
     } else if (rad<=2) {

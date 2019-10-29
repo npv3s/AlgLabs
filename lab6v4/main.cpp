@@ -4,11 +4,11 @@ using namespace std;
 int main() {
     float x, y;
     char todo;
-    cout << "Введите x: " << endl;
+    cout << "Введите x: ";
     cin >> x;
-    cout << "Действие: " << endl;
+    cout << "Действие: ";
     cin >> todo;
-    cout << "Введите y: " << endl;
+    cout << "Введите y: ";
     cin >> y;
     switch (todo) {
         case '+':
