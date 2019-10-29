@@ -1,0 +1,13 @@
+[package]
+name = "example"
+version = "0.1.0"
+authors = ["Nikolai <npv3s@skopa.dev>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[target.x86_64-pc-windows-gnu]
+linker = "C:\\mingw64\\bin\\gcc.exe"
+ar = "C:\\mingw64\\bin\\ar.exe"
+
+[dependencies]

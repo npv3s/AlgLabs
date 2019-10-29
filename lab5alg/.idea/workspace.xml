@@ -22,12 +22,18 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="faVcQigt" />
   </component>
   <component name="ProjectId" id="1SY0oO4F8vAxpr5tgy5ChZcOW1A" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -61,10 +67,28 @@
       <workItem from="1571725397850" duration="3545000" />
       <workItem from="1571729169045" duration="352000" />
       <workItem from="1571733520491" duration="10227000" />
+      <workItem from="1571996709773" duration="293000" />
+      <workItem from="1572107612098" duration="291000" />
+      <workItem from="1572107925414" duration="859000" />
+      <workItem from="1572125229040" duration="61000" />
+      <workItem from="1572267037669" duration="309000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
