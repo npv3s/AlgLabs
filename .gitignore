@@ -1,1 +1,2 @@
 *.xml
+*/cmake-build-debug/*
