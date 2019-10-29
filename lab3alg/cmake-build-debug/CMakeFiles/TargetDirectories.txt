@@ -1,3 +1,0 @@
-/mnt/c/Users/Nick/Google Диск/lab3alg/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/Nick/Google Диск/lab3alg/cmake-build-debug/CMakeFiles/lab3alg.dir
-/mnt/c/Users/Nick/Google Диск/lab3alg/cmake-build-debug/CMakeFiles/edit_cache.dir

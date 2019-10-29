@@ -1,3 +1,0 @@
-/mnt/c/Users/Nick/Documents/GitHub/AlgLabs/lab6v2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/Nick/Documents/GitHub/AlgLabs/lab6v2/cmake-build-debug/CMakeFiles/lab6v2.dir
-/mnt/c/Users/Nick/Documents/GitHub/AlgLabs/lab6v2/cmake-build-debug/CMakeFiles/edit_cache.dir
