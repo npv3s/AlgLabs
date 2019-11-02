@@ -39,7 +39,7 @@ int main() {
             default:
                 cout << "Команда не опознана!" << endl;
         }
-        cout << endl;
+        cout << endl << endl;
     }
     return 0;
 }
