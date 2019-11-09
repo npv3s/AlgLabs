@@ -8,6 +8,7 @@ int main() {
     cout << "Pi counter" << endl;
     long double pi_1 = 1, pi_2 = 0;
     // todo pi_1
+    // ...
     // WORKS!!!!!
     unsigned int val_2 = 1;
     for (double i=0; i<10000; i++) {
