@@ -17,7 +17,7 @@ int main() {
     cout << "Введите верхнее основание трапеции: ";
     cin >> base_1;
     base_2 = base_1*1.5;
-    float offset = base_2-base_1;
+    float offset = base_1*0.5;
     offset /= height;
     cout << fill(base_1, "_") << endl;
     for (int i=1; i<(height+1); i++) {
