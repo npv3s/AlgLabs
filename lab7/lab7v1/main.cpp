@@ -21,7 +21,7 @@ int main() {
             return 0;
         }
         l = (pow(v, 2)*sin(2*float(alpha)*PI/180)/G);
-        cout << "L: " << l << endl;
+        //cout << "L: " << l << endl;
         if ((l<target+target_size) and (l>target-target_size)) {
             cout << "Отличное попадание!" << endl;
             break;
