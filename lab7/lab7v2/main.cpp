@@ -7,8 +7,8 @@ using namespace std;
 int main() {
     cout << "Pi counter" << endl;
     long double pi_1 = 0, pi_2 = 0;
-    for(unsigned int i = 0; i < 500000; i++) {
-        pi_1 += (1/pow(16,i))*(double(4)/(8*i+1)-double(2)/(8*i+4)-double(1)/(8*i+5)-double(1)/(8*i+6));
+    for(unsigned int k = 0; k < 500000; k++) {
+        pi_1 += (1/pow(16, k)) * (double(4) / (8 * k + 1) - double(2) / (8 * k + 4) - double(1) / (8 * k + 5) - double(1) / (8 * k + 6));
     }
     // WORKS!!!!!
     pi_2 = 4*atan(1);
