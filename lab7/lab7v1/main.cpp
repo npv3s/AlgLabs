@@ -10,11 +10,16 @@ using namespace std;
 int main() {
     int v, alpha;
     float l;
+    cout << "Для завершения программы введите 0 как входное данное" << endl;
     while (true) {
         cout << "Введите скорость: ";
         cin >> v;
         cout << "Введите угол: ";
         cin >> alpha;
+        if (alpha==0 or v==0) {
+            cout << "Запрошен выход" << endl;
+            return 0;
+        }
         l = (pow(v, 2)*sin(2*float(alpha)*PI/180)/G);
         cout << "L: " << l << endl;
         if ((l<target+target_size) and (l>target-target_size)) {
