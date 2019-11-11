@@ -18,9 +18,9 @@ int main() {
         cin >> alpha;
         if (alpha==0 or v==0) {
             cout << "Запрошен выход" << endl;
-            return 0;
+            break;
         }
-        l = (pow(v, 2)*sin(2*float(alpha)*PI/180)/G);
+        l = (pow(v, 2)*sin(2*double(alpha)*PI/180)/G);
         //cout << "L: " << l << endl;
         if ((l<target+target_size) and (l>target-target_size)) {
             cout << "Отличное попадание!" << endl;
