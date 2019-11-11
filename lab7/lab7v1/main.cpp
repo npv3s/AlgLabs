@@ -8,8 +8,8 @@ using namespace std;
 #define target_size float(1)/2
 
 int main() {
-    int v, alpha;
-    float l;
+    int v;
+    float l, alpha;
     cout << "Для завершения программы введите 0 как входное данное" << endl;
     while (true) {
         cout << "Введите скорость: ";
@@ -20,7 +20,16 @@ int main() {
             cout << "Запрошен выход" << endl;
             break;
         }
-        l = (pow(v, 2)*sin(2*double(alpha)*PI/180)/G);
+        alpha *= PI/180;
+        float y = 0.001, x = 0, t = 0, prev_x;
+        while (y >= 0) {
+            y = v*sin(alpha)*t-(G*pow(t, 2))/2;
+            prev_x = x;
+            x = v*cos(alpha)*t;
+            t += 0.01;
+        }
+        l = prev_x;
+        //l = (pow(v, 2)*sin(2*double(alpha)*PI/180)/G);
         //cout << "L: " << l << endl;
         if ((l<target+target_size) and (l>target-target_size)) {
             cout << "Отличное попадание!" << endl;
