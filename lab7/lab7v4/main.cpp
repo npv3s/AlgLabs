@@ -20,7 +20,7 @@ int main() {
     cin >> base_1;
     base_2 = base_1*2;
     float offset = float(base_1)/2/float(height-1);
-    cout << offset << endl;
+    //cout << offset << endl;
     int start = base_1/2;
     int end = base_2-start;
     cout << fill(start, " ") << fill(base_1, "*") << endl;

@@ -12,7 +12,7 @@ int main() {
     cout << "y          x   z" << left << endl;
     for (float x=0; x<1.1; x += 0.1) {
         for (float z=z_start; z<=z_end; z++) {
-            y = (sqrt(pow(x, 2)+pow(x, 2))/(x+z-3))*cos(x);
+            y = (sqrt(pow(x, 2)+pow(z, 2))/(x+z-3))*cos(x);
             if (isnan(y) or isinf(y)) {
                 continue;
             }
