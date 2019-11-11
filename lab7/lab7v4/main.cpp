@@ -10,6 +10,8 @@ string fill(int val, string chr) {
     return fill_str;
 }
 
+// Я обосрался, тут нужно было равнобедренный
+
 int main() {
     int height, base_1, base_2;
     cout << "Введите высоту трапеции: ";
