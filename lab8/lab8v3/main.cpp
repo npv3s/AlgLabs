@@ -1,32 +1,36 @@
+//
+// Сортировка пузырьком по убыванию
+//
+
+#include <ctime>
 #include <iostream>
+using namespace std;
 
 int main()
 {
-    int array[5] = {5, 2, 1, 3, 4};
-    int array_size = 5;
-	int i = 0;
-	int buf;
-	char swap_cnt = 0;
-	if (array_size == 0)
-		return (0);
-	while (i < array_size)
-	{
-		if (i + 1 != array_size && array[i] > array[i + 1])
-		{
-			buf = array[i];
-			array[i] = array[i + 1];
-			array[i + 1] = buf;
-			swap_cnt = 1;
-		}
-		i++;
-		if (i == array_size && swap_cnt == 1)
-		{
-			swap_cnt = 0;
-			i = 0;
-		}
-	}
+    int a_len;
+    cout << "Введите к-во элементов: ";
+    cin >> a_len;
+    srand(unsigned(time(0)));
+    double k = double(100)/RAND_MAX;
+    int a[a_len];
+    for (int i=0; i<a_len; i++){
+        a[i] = rand() * k;
+    }
+	bool is_sorted = false;
+	while (!is_sorted) {
+	    is_sorted = true;
+        for (int i = 0; i < a_len - 1; i++) {
+            if (a[i] < a[i + 1]) {
+                is_sorted = false;
+                int tmp = a[i];
+                a[i] = a[i+1];
+                a[i+1] = tmp;
+            }
+        }
+    }
     // Magic array print
-    for (const auto& e : array) {
+    for (const auto& e : a) {
         std::cout << e << std::endl;
     }
 }
