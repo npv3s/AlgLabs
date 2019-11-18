@@ -1,13 +1,22 @@
+#include <ctime>
 #include <iostream>
 using namespace std;
 
 int main() {
-    int a[30] = {0, 12, 3, 8, 8, 9, 0, 7, 19, 14, 11, 19, 20, 10, 18, 18, 11, 10, 18, 5, 10, 15, 11, 7, 10, 17, 20, 3, 1, 5};
+    srand(unsigned(time(0)));
+    double k = double(100)/RAND_MAX;
+    int a[100];
+    int* index = a;
+    for (int i=0; i<100; i++){
+        *(index + i) = rand() * k;
+    }
+
+    index = a;
     int b=0;
     unsigned long int c=1;
-    for (int i=0; i<30; i++) {
-        if (a[i]&1) {
-            c *= a[i];
+    for (int i=0; i<100; i++) {
+        if (*(index + i)&1) {
+            c *= *(index + i);
             b++;
         }
     }
