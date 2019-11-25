@@ -29,11 +29,11 @@ int main() {
     cin >> val;
 
     for (int i = 0; i < val; i++) {
-        int tmp = a[0][0];
-        for (int y = 0; y < (n1 * n2) - 1; y++) {
-            a[y / n2][y % n2] = a[(y + 1) / n2][(y + 1) % n2];
+        int tmp = a[n1 - 1][n2 - 1];
+        for (int y = (n1 * n2)-1; y > 0; y--) {
+             a[y / n2][y % n2] = a[(y - 1) / n2][(y - 1) % n2];
         }
-        a[n1 - 1][n2 - 1] = tmp;
+        a[0][0] = tmp;
     }
 
     for (int i = 0; i < n1; i++) {
