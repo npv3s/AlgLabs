@@ -7,18 +7,19 @@ int main() {
         a[i] = i;
     }
 
-    int r[a_len];
-    int index = 0;
-    for (int i=0; i<a_len; i+=2) {
-        r[index] = a[i];
-        index++;
-    }
-    for (int i=1; i<a_len; i+=2) {
-        r[index] = a[i];
-        index++;
+    a_len /= 2;
+    for (int i=1; i<a_len; i++) {
+        int tmp = a[i];
+        int y;
+        for(y=i; y<a_len; y++) {
+            a[y] = a[y+1];
+        }
+        a[a_len-1] = a[a_len-1+i];
+        a[a_len-1+i] = tmp;
+
     }
 
-    for (const auto& e : r) {
+    for (const auto& e : a) {
         std::cout << e << std::endl;
     }
 
