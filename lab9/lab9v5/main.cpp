@@ -27,11 +27,11 @@ int main() {
 
             int prev_max = 0;
             for (int z = 0; z < n2; z++) {
-                if (a[i][y] == a[i][z]) {
+                if (a[i][y] == a[i][z] and a[i][z] == a[i][z-1]) {
                     local_max[y]++;
                 }
             }
-            
+
 
         }
         max[i] = 0;
