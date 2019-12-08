@@ -9,8 +9,8 @@ int main() {
     //cin >> n1;
     cout << "Введите ширину матрицы: ";
     //cin >> n2;
-    n1 = 20;
-    n2 = 20;
+    n1 = 10;
+    n2 = 10;
     cout << endl;
     srand(unsigned(time(nullptr)));
     double k = double(4) / RAND_MAX;
