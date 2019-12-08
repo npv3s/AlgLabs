@@ -1,32 +1,31 @@
 #include <iostream>
-#include <cstring>
+#include <string.h>
+#include <stdio.h>
 
 int main() {
     char str1[10] = "abc";
     char str2[] = "dfg";
-
     char tmp[10] = "abc";
     printf("%s\n", strcat(tmp, str2));
-    //tmp[10] = {'\0'};
-
     strcpy(tmp, "abc");
     printf("%s\n", strncat(tmp, str2, 2));
     printf("%s\n", strchr(str1, 'b'));
     printf("%d\n", strcmp(str1, str2));
-    //printf("%d\n", strcmpi(str1, str2));
-
+    //printf("%d\n", strcmpi(str1, str2)); UNDECLARED!
     tmp[10] = {'\0'};
-     strcpy(tmp, str1);
-     printf("%s\n", tmp);
-     tmp[10] = {'\0'};
+    strcpy(tmp, str1);
+    printf("%s\n", tmp);
+    tmp[10] = {'\0'};
     strncpy(tmp, "1234", 3);
     printf("%s\n", tmp);
     printf("%zu\n", strlen(str1));
-    //strlwr(s);
-    //strset(str, 'x');
-    //strrev(s);
-    //strstr(s1,s2);
-    //strupr(s);
-    //strtok(s1,s2);
+    //printf("%s\n", strlwr("ABC")); UNDECLARED!
+    //strset(tmp, 'a'); UNDECLARED!
+    //strrev(tmp); UNDECLARED!
+    printf("%s\n", strstr(str1, "b"));
+    //strupr(tmp); UNDECLARED!
+    tmp[10] = {'\0'};
+    strtok(tmp, str1);
+    printf("%s\n", tmp);
     return 0;
 }
