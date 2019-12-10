@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string.h>
 #include <stdio.h>
 
@@ -11,7 +10,7 @@ int main() {
     printf("%s\n", strncat(tmp, str2, 2));
     printf("%s\n", strchr(str1, 'b'));
     printf("%d\n", strcmp(str1, str2));
-    //printf("%d\n", strcmpi(str1, str2)); UNDECLARED!
+    printf("%d\n", strcmpi(str1, str2)); //UNDECLARED!
     tmp[10] = {'\0'};
     strcpy(tmp, str1);
     printf("%s\n", tmp);
@@ -19,8 +18,8 @@ int main() {
     strncpy(tmp, "1234", 3);
     printf("%s\n", tmp);
     printf("%zu\n", strlen(str1));
-    //printf("%s\n", strlwr("ABC")); UNDECLARED!
-    //strset(tmp, 'a'); UNDECLARED!
+    printf("%s\n", strlwr(tmp)); //UNDECLARED!
+    printf("%s\n", strset(tmp, 'a')); //UNDECLARED!
     //strrev(tmp); UNDECLARED!
     printf("%s\n", strstr(str1, "b"));
     //strupr(tmp); UNDECLARED!
