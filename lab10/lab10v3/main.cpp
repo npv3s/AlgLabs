@@ -50,12 +50,12 @@ int main() {
 
     int i=space[0]+1;
     for (int y=0; y < space[1]-space[0]-1; y++, i++) {
-        text[i] = word1[y];
+        text[i] = word2[y];
     }
     text[i] = ' ';
     i++;
     for (int y=0; y < point[1]-space[1]-1; y++, i++) {
-        text[i] = word2[y];
+        text[i] = word1[y];
     }
     text[i] = '.';
 
