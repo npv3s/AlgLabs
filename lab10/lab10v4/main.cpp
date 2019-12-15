@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 
 bool vowel(char letter) {
     bool out = false;
