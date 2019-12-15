@@ -3,7 +3,7 @@
 int main() {
     //char text[256];
     //gets(text);
-    char text[256] = "Aa. Bb cc dd.";
+    char text[256] = "Aa. Bbbbb ccc dddddd.";
     int point[2] = {-1, -1};
     for (int i=0; i < 256; i++) {
         if (text[i] == '.') {
@@ -49,12 +49,12 @@ int main() {
     word2[point[1]-space[1]-1] = '\0';
 
     int i=space[0]+1;
-    for (int y=0; y < space[1]-space[0]-1; y++, i++) {
+    for (int y=0; y < point[1]-space[1]-1; y++, i++) {
         text[i] = word2[y];
     }
     text[i] = ' ';
     i++;
-    for (int y=0; y < point[1]-space[1]-1; y++, i++) {
+    for (int y=0; y < space[1]-space[0]-1; y++, i++) {
         text[i] = word1[y];
     }
     text[i] = '.';
