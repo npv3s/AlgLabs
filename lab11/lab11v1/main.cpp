@@ -17,7 +17,7 @@ int main() {
             printf("Name: %s\nBirthday: %d.%d\nMarks: %d,%d,%d\n\n",
                     student.name,
                     student.birth_month, student.birth_year,
-                    student.marks[0], student.marks[0], student.marks[0]);
+                    student.marks[0], student.marks[1], student.marks[2]);
         }
     }
     return 0;
