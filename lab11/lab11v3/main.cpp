@@ -22,7 +22,7 @@ int main() {
             {"Vlad", 10, 2003, {3, 5, 3}}};
     short int threes[5];
     for (int i = 0; i < 5; i++) { threes[i] = count_3(students[i].marks); }
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 4; i++) {
         for (int y = 0; y < 5; y++) {
             if (threes[y] == i) {
                 printf("Name: %s\nBirthday: %d.%d\nMarks: %d,%d,%d\n\n",

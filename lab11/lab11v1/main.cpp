@@ -1,5 +1,16 @@
 #include <cstdio>
 
+bool more_3(int marks[3]) {
+    bool out = true;
+    for (int i = 0; i < 3; i++) {
+        if (marks[i] < 4) {
+            out = false;
+            break;
+        }
+    }
+    return out;
+}
+
 int main() {
     struct student {
         char name[255];
@@ -13,7 +24,7 @@ int main() {
             {"Dominator", 5, 2002, {3, 3, 5}},
             {"Vlad", 10, 2003, {3, 5, 3}}};
     for (auto & student : students) {
-        if ((student.marks[0] > 3) and (student.marks[1] > 3) and (student.marks[2] > 3)) {
+        if (more_3(student.marks)) {
             printf("Name: %s\nBirthday: %d.%d\nMarks: %d,%d,%d\n\n",
                     student.name,
                     student.birth_month, student.birth_year,
