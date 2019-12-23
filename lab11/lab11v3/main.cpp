@@ -15,22 +15,36 @@ int main() {
         int birth_year;
         int marks[3];
     } students[5] = {
-            {"Arkadiy", 9, 2002, {4, 4, 5}},
-            {"Sergey", 5, 2002, {5, 4, 5}},
-            {"Aleksandr", 5, 2003, {3, 5, 4}},
-            {"Dominator", 5, 2002, {3, 3, 5}},
-            {"Vlad", 10, 2003, {3, 5, 3}}};
-    short int threes[5];
+            {"Arkadiy",   9,  2002, {3, 3, 3}},
+            {"Sergey",    5,  2002, {5, 4, 5}},
+            {"Aleksandr", 5,  2003, {3, 5, 4}},
+            {"Dominator", 5,  2002, {3, 3, 5}},
+            {"Vlad",      10, 2003, {3, 5, 3}}};
+    int threes[5];
     for (int i = 0; i < 5; i++) { threes[i] = count_3(students[i].marks); }
-    for (int i = 0; i < 4; i++) {
-        for (int y = 0; y < 5; y++) {
-            if (threes[y] == i) {
-                printf("Name: %s\nBirthday: %d.%d\nMarks: %d,%d,%d\n\n",
-                       students[y].name,
-                       students[y].birth_month, students[y].birth_year,
-                       students[y].marks[0], students[y].marks[1], students[y].marks[2]);
+    bool is_sorted = false;
+    while (!is_sorted) {
+        is_sorted = true;
+        for (int i = 0; i < 4; i++) {
+            if (threes[i + 1] < threes[i]) {
+                int tmp1 = threes[i];
+                threes[i] = threes[i + 1];
+                threes[i + 1] = tmp1;
+                student tmp2 = students[i];
+                students[i] = students[i + 1];
+                students[i + 1] = tmp2;
+                is_sorted = false;
             }
         }
+    }
+    for (auto &student : students) {
+        printf("Name: %s\nBirthday: %d.%d\nMarks: %d,%d,%d\n\n",
+               student.name,
+               student.birth_month,
+               student.birth_year,
+               student.marks[0],
+               student.marks[1],
+               student.marks[2]);
     }
     return 0;
 }
