@@ -22,7 +22,12 @@ int main() {
                    {3, 0, 1, 2, 0},
                    {0, 3, 2, 0, 0},
                    {0, 1, 2, 1, 1}};
+    int y[4][6] = {{0, 3, 1, 1, 1, 1},
+                   {1, 0, 3, 0, 2, 0},
+                   {2, 3, 0, 1, 2, 0},
+                   {1, 0, 3, 2, 0, 0}};
 
     std::cout << matrixProcessing(*x, 5, 5) << std::endl;
+    std::cout << matrixProcessing(*y, 4, 6) << std::endl;
     return 0;
 }
