@@ -8,8 +8,9 @@ int distanceFromCenter(int x, int y) {
 
 int main() {
     int radius;
-    //cin >> radius;
-    radius = 3;
+    cout << "Введите радиус: ";
+    cin >> radius;
+    //radius = 3;
     int x[] = {0, -3, 5, 3, -4, 5, 0, 4, 2, 4};
     int y[] = {3, -3, -5, 5, 0, -2, 4, -5, 1, 1};
     unsigned int sum = 0;
@@ -18,6 +19,6 @@ int main() {
             sum++;
         }
     }
-    cout << sum << endl;
+    cout << "К-во точек в радиусе: " << sum << endl;
     return 0;
 }
