@@ -1,14 +1,19 @@
 #include <iostream>
 
+// Функция проверки числа на вхождение в промежуток [0, 1]
 bool toCall(int a) {
     return a >= 0 and a <= 1;
 }
-
+// Функция подсчёта чисел, удовлетворяющих условию в матрице
 int matrixProcessing(const int *matrix, int height, int width) {
+    // Введение переменной для подсчёта чисел, удовлетворяющих условию в матрице
     int sum = 0;
+    // Цикл, с помощью которого происходит перебор всех элементов матрицы
     for (int i = 0; i < height; i++) {
         for (int y = 0; y < width; y++) {
+            // Проверка числа с помощью фунции
             if (toCall(*(matrix + i * height + y))) {
+                // Подсчёт подходящих элементов
                 sum++;
             }
         }
@@ -17,6 +22,7 @@ int matrixProcessing(const int *matrix, int height, int width) {
 }
 
 int main() {
+    // Введение исходных матриц
     int x[5][5] = {{3, 1, 1, 1, 1},
                    {0, 3, 0, 2, 0},
                    {3, 0, 1, 2, 0},
@@ -26,7 +32,7 @@ int main() {
                    {1, 0, 3, 0, 2, 0},
                    {2, 3, 0, 1, 2, 0},
                    {1, 0, 3, 2, 0, 0}};
-
+    // Вывод к-ва чисел удовлетворяющих условию из матрицы
     std::cout << "К-во чисел в 1ой матрице: " << matrixProcessing(*x, 5, 5) << std::endl;
     std::cout << "К-во чисел в 2ой матрице: " << matrixProcessing(*y, 4, 6) << std::endl;
     return 0;
