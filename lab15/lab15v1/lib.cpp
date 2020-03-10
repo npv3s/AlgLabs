@@ -5,9 +5,10 @@
 #include <cstdio>
 #include "lib.h"
 
+
 int text_processing(char text[2048], int text_index) {
 
-    int points_index[256];
+    int points_index[MAX_SENTENCE];
 
     int points_len = 0;
     for (int i = 0; i < text_index; i++) {

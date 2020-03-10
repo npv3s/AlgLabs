@@ -5,6 +5,10 @@
 #ifndef LAB15V1_LIB_H
 #define LAB15V1_LIB_H
 
-int text_processing(char[2048], int);
+
+#define MAX_SENTENCE 256
+#define TEXT_SIZE 2048
+
+int text_processing(char[TEXT_SIZE], int);
 
 #endif //LAB15V1_LIB_H

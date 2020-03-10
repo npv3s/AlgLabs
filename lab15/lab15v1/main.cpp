@@ -1,9 +1,8 @@
 #include <cstdio>
-#include <cstring>
 #include "lib.h"
 using namespace std;
 
-#define FILENAME "/mnt/c/Users/npv3s/Desktop/psycho.txt"
+#define FILENAME "/mnt/c/Users/npv3s/Desktop/text.txt"
 
 int main() {
     FILE *fp;
@@ -12,7 +11,7 @@ int main() {
         return -1;
     }
 
-    char text[2048] = {'\0'};
+    char text[TEXT_SIZE] = {'\0'};
     int text_index = 0;
     char buff;
     while ((buff = getc(fp)) != EOF) {
@@ -28,7 +27,7 @@ int main() {
         puts("Невозможно открыть файл");
         return -1;
     }
-    fprintf(fw, "%d %s", points_len, text);
+    fprintf(fw, "%d\n%s", points_len, text);
     fclose(fw);
 
     return 0;
