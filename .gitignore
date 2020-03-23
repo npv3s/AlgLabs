@@ -72,3 +72,4 @@ fabric.properties
 */*/cmake-build-debug/*
 */*/.idea/*
 *.txt
+*/target/*
