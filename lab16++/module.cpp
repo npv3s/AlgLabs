@@ -35,7 +35,7 @@ Item to_item(const char *str) {
     return out;
 }
 
-DB openDB(const char* f_name) {
+DB openDB(const char *f_name) {
     FILE *fp;
     if ((fp = fopen(f_name, "r")) == nullptr) {
         puts("Невозможно открыть файл");
@@ -62,9 +62,13 @@ DB openDB(const char* f_name) {
 }
 
 void print_by_code(const char *code, DB data) {
-    auto [len, db] = data;
+    auto[len, db] = data;
     cout << "┌" << string(CODE_SIZE, '-') << "┬" << string(NAME_SIZE, '-') << "┬" << string(10, '-') << "┬"
          << string(10, '-') << "┐" << endl;
+    cout << "|" << left << setw(CODE_SIZE) << "Code" << "|" << setw(NAME_SIZE) << "Name" << "|" << setw(10) << "Amount"
+         << "|" << setw(10) << "Price" << "|" << endl;
+    cout << "├" << string(CODE_SIZE, '-') << "┼" << string(NAME_SIZE, '-') << "┼" << string(10, '-') << "┼"
+         << string(10, '-') << "┤" << endl;
     for (int i = 0; i < len; i++) {
         if (strcmp(code, db[i].code) == 0) {
             cout << "|" << left << setw(CODE_SIZE) << db[i].code << "|" << setw(NAME_SIZE) << db[i].name << "|" << right
@@ -76,10 +80,14 @@ void print_by_code(const char *code, DB data) {
 }
 
 void print_c_code(DB data) {
-    auto [len, db] = data;
+    auto[len, db] = data;
     cout << "Детская одежда" << endl;
     cout << "┌" << string(CODE_SIZE, '-') << "┬" << string(NAME_SIZE, '-') << "┬" << string(10, '-') << "┬"
          << string(10, '-') << "┐" << endl;
+    cout << "|" << left << setw(CODE_SIZE) << "Code" << "|" << setw(NAME_SIZE) << "Name" << "|" << setw(10) << "Amount"
+         << "|" << setw(10) << "Price" << "|" << endl;
+    cout << "├" << string(CODE_SIZE, '-') << "┼" << string(NAME_SIZE, '-') << "┼" << string(10, '-') << "┼"
+         << string(10, '-') << "┤" << endl;
     for (int i = 0; i < len; i++) {
         if (strncmp("C", db[i].code, 1) == 0) {
             cout << "|" << left << setw(CODE_SIZE) << db[i].code << "|" << setw(NAME_SIZE) << db[i].name << "|" << right
