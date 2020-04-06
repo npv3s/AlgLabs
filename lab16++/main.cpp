@@ -5,7 +5,7 @@ using namespace std;
 
 
 int main() {
-    auto db = openDB("db.csv");
+    auto db = openDB("../db.csv");
 
     char code[CODE_SIZE];
     cout << "Введите артикул: " << endl;
