@@ -5,13 +5,11 @@ using namespace std;
 
 
 int main() {
-    cout << "СТАРТУЕМ!" << endl;
-
     auto db = openDB("db.csv");
 
-    char code[CODE_SIZE] = "M01";
+    char code[CODE_SIZE];
     cout << "Введите артикул: " << endl;
-    //cin >> code;
+    cin >> code;
     print_by_code(code, db);
     print_c_code(db);
 
