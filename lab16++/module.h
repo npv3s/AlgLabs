@@ -21,7 +21,6 @@ struct DB {
     Item* table;
 };
 
-Item to_item(const char *str);
 DB openDB(const char *f_name);
 void print_by_code(const char *str, DB data);
 void print_c_code(DB data);
