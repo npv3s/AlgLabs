@@ -41,7 +41,7 @@ DB openDB(const char *f_name) {
         exit(-1);
     }
 
-    int len = 0; // Последняя строка с '\n'
+    int len = 0;
     char buff;
     char text[DB_SIZE];
     int text_index = 0;
