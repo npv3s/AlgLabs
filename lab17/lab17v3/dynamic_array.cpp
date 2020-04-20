@@ -4,15 +4,8 @@
 
 #include <iostream>
 #include "dynamic_array.h"
-using namespace std;
 
-int min(int *const val, int start, int end) {
-    int tmp = val[start];
-    for (int i = start+1; i < end; i++) {
-        if (tmp > val[i]) tmp = val[i];
-    }
-    return tmp;
-}
+using namespace std;
 
 void print(Node *const array_start) {
     Node *tmp_pointer = array_start;
@@ -27,8 +20,20 @@ void print(Node *const array_start) {
         vals[i] = tmp_pointer->d;
         tmp_pointer = tmp_pointer->next;
     }
-    for (int i = 0; i < len; i++) {
-        cout << min(vals, i, len) << " ";
+    bool is_sorted = false;
+    while (!is_sorted) {
+        is_sorted = true;
+        for (int i = 0; i < len - 1; i++) {
+            if (vals[i] > vals[i + 1]) {
+                is_sorted = false;
+                int tmp = vals[i];
+                vals[i] = vals[i + 1];
+                vals[i + 1] = tmp;
+            }
+        }
+    }
+    for (const auto &e : vals) {
+        cout << e << " ";
     }
     cout << endl;
 }
