@@ -74,3 +74,4 @@ fabric.properties
 *.txt
 */target/*
 *.o
+*/.ipynb_checkpoints/*
