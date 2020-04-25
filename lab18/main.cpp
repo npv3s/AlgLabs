@@ -46,22 +46,22 @@ int main() {
     while (spider.location.y != MAZE_Y_SIZE-1) {
         bool forwd, left, right;
         switch (spider.direction) {
-            case DOWN: // вниз
+            case DOWN:
                 forwd = maze[spider.location.y + 1][spider.location.x];
                 left = maze[spider.location.y][spider.location.x + 1];
                 right = maze[spider.location.y][spider.location.x - 1];
                 break;
-            case LEFT: // влево
+            case LEFT:
                 forwd = maze[spider.location.y][spider.location.x - 1];
                 left = maze[spider.location.y + 1][spider.location.x];
                 right = maze[spider.location.y - 1][spider.location.x];
                 break;
-            case UP: // вверх
+            case UP:
                 forwd = maze[spider.location.y + 1][spider.location.x];
                 left = maze[spider.location.y][spider.location.x - 1];
                 right = maze[spider.location.y][spider.location.x + 1];
                 break;
-            case RIGHT: // вправо
+            case RIGHT:
                 forwd = maze[spider.location.y][spider.location.x + 1];
                 left = maze[spider.location.y - 1][spider.location.x];
                 right = maze[spider.location.y + 1][spider.location.x];
@@ -69,54 +69,54 @@ int main() {
         }
         if (right) {
             switch (spider.direction) {
-                case UP: // вверх
-                    spider.direction = RIGHT; // вправо
+                case UP:
+                    spider.direction = RIGHT;
                     spider.location.x++;
                     break;
-                case DOWN: // вниз
-                    spider.direction = LEFT; // влево
+                case DOWN:
+                    spider.direction = LEFT;
                     spider.location.x--;
                     break;
-                case LEFT: // влево
-                    spider.direction = UP; // вверх
+                case LEFT:
+                    spider.direction = UP;
                     spider.location.y--;
                     break;
-                case RIGHT: // вправо
-                    spider.direction = DOWN; // вниз
+                case RIGHT:
+                    spider.direction = DOWN;
                     spider.location.y++;
                     break;
             }
         } else if (forwd) {
             switch (spider.direction) {
-                case UP: // вверх
+                case UP:
                     spider.location.y--;
                     break;
-                case DOWN: // вниз
+                case DOWN:
                     spider.location.y++;
                     break;
-                case LEFT: // влево
+                case LEFT:
                     spider.location.x--;
                     break;
-                case RIGHT: // вправо
+                case RIGHT:
                     spider.location.x++;
                     break;
             }
         } else if (left) {
             switch (spider.direction) {
-                case UP: // вверх
-                    spider.direction = LEFT; // влево
+                case UP:
+                    spider.direction = LEFT;
                     spider.location.x--;
                     break;
-                case DOWN: // вниз
-                    spider.direction = RIGHT; // влево
+                case DOWN:
+                    spider.direction = RIGHT;
                     spider.location.x++;
                     break;
-                case LEFT: // влево
-                    spider.direction = DOWN; // вверх
+                case LEFT:
+                    spider.direction = DOWN;
                     spider.location.y++;
                     break;
-                case RIGHT: // вправо
-                    spider.direction = UP; // вниз
+                case RIGHT:
+                    spider.direction = UP;
                     spider.location.y--;
                     break;
             }
