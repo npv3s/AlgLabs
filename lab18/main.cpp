@@ -1,4 +1,5 @@
 #include <iostream>
+#include "stack.h"
 
 using namespace std;
 
@@ -11,39 +12,33 @@ using namespace std;
 
 int main() {
 
-    bool maze[MAZE_Y_SIZE][MAZE_X_SIZE] =
-            {{false, true, false, false, false, false, false, false, false, false, false, false},
-             {false, true, false, true, true, true, true, true, false, true, true, false},
-             {false, true, false, true, false, false, false, true, false, false, true, false},
-             {false, true, false, true, true, true, false, true, true, true, true, false},
-             {false, true, false, false, false, true, false, false, false, false, false, false},
-             {false, true, false, true, true, true, false, true, false, true, true, false},
-             {false, true, false, true, true, false, false, true, true, true, true, false},
-             {false, true, false, true, true, true, false, true, false, false, true, false},
-             {false, true, false, true, false, true, true, true, false, true, true, false},
-             {false, true, false, false, false, false, false, true, false, true, false, false},
-             {false, true, true, true, true, true, true, true, false, true, true, false},
-             {false, false, false, false, false, false, false, false, false, false, true, false}};
+    short int maze[MAZE_Y_SIZE][MAZE_X_SIZE] =
+            {{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+             {0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0},
+             {0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0},
+             {0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0},
+             {0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+             {0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0},
+             {0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0},
+             {0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0},
+             {0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0},
+             {0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0},
+             {0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0},
+             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0}};
 
-    struct Location {
-        short int x;
-        short int y;
-    };
 
     struct Spider {
         short int direction; // 1 - вниз, 2 - влево, 3 - вверх, 4 - вправо
         Location location;
     };
 
-    unsigned int len = 0;
-    Location history[1024];
-
     Spider spider = {DOWN, {1, 0}};
 
-    history[len++] = spider.location;
+    Node *top = nullptr;
+    push(&top, spider.location);
     cout << "y: " << spider.location.y << " x: " << spider.location.x << endl;
 
-    while (spider.location.y != MAZE_Y_SIZE-1) {
+    while (spider.location.y != MAZE_Y_SIZE - 1) {
         bool forwd, left, right;
         switch (spider.direction) {
             case DOWN:
@@ -125,7 +120,8 @@ int main() {
             if (spider.direction == 0) spider.direction = 4;
             if (spider.direction == -1) spider.direction = 3;
         }
-        history[len++] = spider.location;
+        push(&top, spider.location);
+
         cout << "y: " << spider.location.y << " x: " << spider.location.x << " direction: ";
         switch (spider.direction) {
             case UP:
@@ -148,25 +144,20 @@ int main() {
     }
     cout << "Выход есть!" << endl;
 
-    int map[MAZE_Y_SIZE][MAZE_X_SIZE] = {0};
-    for (int y = 0; y < MAZE_Y_SIZE; y++) {
-        for (int x = 0; x < MAZE_X_SIZE; x++) {
-            if (!maze[y][x]) map[y][x] = 1;
-        }
+    while (top) {
+        Location val = pop(&top);
+        maze[val.y][val.x] = 2;
     }
-    for (int i = 0; i < len; i++) {
-        map[history[i].y][history[i].x] = 2;
-    }
-    for (auto &y : map) {
+    for (auto &y : maze) {
         for (int x : y) {
             switch (x) {
                 case 0:
-                    cout << ' ';
-                    break;
-                case 1:
                     cout << 'N';
                     break;
-                case 2:
+                case 1:
+                    cout << ' ';
+                    break;
+                default:
                     cout << '+';
                     break;
             }
@@ -174,5 +165,4 @@ int main() {
         cout << endl;
     }
     return 0;
-
 }
