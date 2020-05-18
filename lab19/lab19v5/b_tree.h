@@ -1,0 +1,20 @@
+//
+// Created by npv3s on 18.05.2020.
+//
+
+#ifndef LAB19V5_B_TREE_H
+#define LAB19V5_B_TREE_H
+
+struct Node {
+    int d;
+    Node *left;
+    Node *right;
+};
+
+Node *first(int d);
+Node *search_insert(Node *root, int d);
+void print_tree(Node *p, int level);
+void print_sorted_tree(Node *p);
+void delete_it(Node *root, Node *p);
+
+#endif //LAB19V5_B_TREE_H
