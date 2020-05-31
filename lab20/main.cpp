@@ -33,10 +33,7 @@ public:
         this->dob = new char[strlen(dob) + 1];
         strcpy(this->dob, dob);
         Student::quantity++;
-        this->grants = true;
-        for (short mark : this->marks) {
-            if (mark < 4) this->grants = false;
-        }
+        this->grants = (marks[0]+marks[1]+marks[2])/3 > 4;
     }
 
     ~Student() {
@@ -95,6 +92,10 @@ public:
             }
         }
         return out;
+    }
+
+    void recount() {
+        this->grants = (marks[0]+marks[1]+marks[2])/3 > 4;
     }
 
     void print() {
