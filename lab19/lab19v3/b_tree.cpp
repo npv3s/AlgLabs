@@ -1,12 +1,11 @@
+//
+// Created by npv3s on 18.05.2020.
+//
+
 #include <iostream>
+#include "b_tree.h"
 
 using namespace std;
-
-struct Node {
-    int d;
-    Node *left;
-    Node *right;
-};
 
 Node *first(int d) {
     Node *pv = new Node;
@@ -55,11 +54,6 @@ void print_sorted_tree(Node *p) {
     }
 }
 
-Node **minimum(Node **p) {
-    if ((*p)->left == nullptr) return p;
-    return minimum(&(*p)->left);
-}
-
 Node *find_root(Node *root, Node *p) {
     if (root == p) return p;
     while ((root->right != p) && root->left != p) {
@@ -83,9 +77,10 @@ Node *is_list(Node *p) {
             return nullptr;
         }
     }
+    return nullptr;
 }
 
-Node *delete_it(Node *root, Node *p) {
+void delete_it(Node *root, Node *p) {
     if (p == nullptr) {
         cout << "Нельзя удалить несуществующий элемент!" << endl;
         exit(-1);
@@ -104,7 +99,6 @@ Node *delete_it(Node *root, Node *p) {
                 p_root->left = p->right;
             } else {
                 p_root->right = p->right;
-                //p->right.p_rootarent = p_root;
             }
         } else {
             if (p_root->left == p) {
@@ -131,18 +125,3 @@ Node *delete_it(Node *root, Node *p) {
         }
     }
 }
-
-int main() {
-    int b[] = {1, 2, 3, 4, 5};
-    Node *root = first(b[1]);
-    for (int i : b)
-        search_insert(root, i);
-    print_tree(root, 0);
-    delete_it(root, root);
-    delete_it(root, root->right);
-    cout << endl;
-    print_tree(root, 0);
-    cout << endl;
-    return 0;
-}
-

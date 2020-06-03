@@ -7,7 +7,28 @@
 
 using namespace std;
 
-Node *first(int d) {
+void get_world(char *word) {
+
+}
+
+inline void print_word(Word d) {
+    cout << "ru: " << d.rus << " en: " << d.eng << " counter: " << d.counter;
+}
+
+bool word_compare(Word d1, Word d2, bool sort_by_counter = false) {
+    if (sort_by_counter) {
+        return d1.counter < d2.counter;
+    } else {
+        for (int i = 0; i < WORD_SIZE; i++) {
+            if (d1.eng[i] != d2.eng[i]) {
+                return d1.eng[i] < d2.eng[i];
+            }
+        }
+        return false;
+    }
+}
+
+Node *first(Word d) {
     Node *pv = new Node;
     pv->d = d;
     pv->left = nullptr;
@@ -15,14 +36,14 @@ Node *first(int d) {
     return pv;
 }
 
-Node *search_insert(Node *root, int d) {
+Node *search_insert(Node *root, Word d, bool sort_by_counter = false) {
     Node *pv = root;
     Node *prev;
     bool found = false;
     while (pv && !found) {
         prev = pv;
-        if (d == pv->d) found = true;
-        else if (d < pv->d) pv = pv->left;
+        if (d.eng == pv->d.eng) found = true;
+        else if (word_compare(d, pv->d, sort_by_counter)) pv = pv->left;
         else pv = pv->right;
     }
     if (found) return pv;
@@ -30,7 +51,7 @@ Node *search_insert(Node *root, int d) {
     pnew->d = d;
     pnew->left = nullptr;
     pnew->right = nullptr;
-    if (d < prev->d)
+    if (word_compare(d, prev->d, sort_by_counter))
         prev->left = pnew;
     else
         prev->right = pnew;
@@ -41,7 +62,8 @@ void print_tree(Node *p, int level) {
     if (p) {
         print_tree(p->left, level + 1);
         for (int i = 0; i < level; i++) cout << " ";
-        cout << p->d << endl;
+        print_word(p->d);
+        cout << endl;
         print_tree(p->right, level + 1);
     }
 }
@@ -49,7 +71,8 @@ void print_tree(Node *p, int level) {
 void print_sorted_tree(Node *p) {
     if (p != nullptr) {
         print_sorted_tree(p->left);
-        cout << p->d << endl;
+        print_word(p->d);
+        cout << endl;
         print_sorted_tree(p->right);
     }
 }
@@ -57,7 +80,7 @@ void print_sorted_tree(Node *p) {
 Node *find_root(Node *root, Node *p) {
     if (root == p) return p;
     while ((root->right != p) && root->left != p) {
-        if ((p)->d < root->d) root = root->left;
+        if (word_compare(p->d, root->d)) root = root->left;
         else root = root->right;
     }
     return root;
