@@ -1,9 +1,12 @@
 #include <iostream>
-#include <cstdio>
 #include <cstring>
-#include "student.h"
 
 using namespace std;
+
+#define loop while (true)
+#define VEC_BLOCK_SIZE 10
+#define VEC_TYPE Student
+#define BUFF_SIZE 256
 
 class Student {
     char *surname;
@@ -14,6 +17,7 @@ class Student {
     bool grants;
 public:
     static int quantity;
+
     Student() {
         this->surname = nullptr;
         this->name = nullptr;
@@ -22,6 +26,7 @@ public:
         this->dob = nullptr;
         this->grants = false;
     }
+
     Student(char *surname, char *name, char *patronymic, short int marks[3], char *dob) {
         this->surname = new char[strlen(surname) + 1];
         this->name = new char[strlen(name) + 1];
@@ -33,7 +38,7 @@ public:
         this->dob = new char[strlen(dob) + 1];
         strcpy(this->dob, dob);
         Student::quantity++;
-        this->grants = (marks[0]+marks[1]+marks[2])/3 > 4;
+        this->grants = this->recount();
     }
 
     ~Student() {
@@ -94,14 +99,12 @@ public:
         return out;
     }
 
-    void recount() {
-        this->grants = (marks[0]+marks[1]+marks[2])/3 > 4;
+    bool recount() {
+        return this->grants = (marks[0] + marks[1] + marks[2]) / 3 > 4;
     }
 
     void print() {
-        cout << "Фамилия: " << this->surname << endl;
-        cout << "Имя: " << this->name << endl;
-        cout << "Отчество: " << this->patronymic << endl;
+        cout << "ФИО: " << this->surname << " " << this->name << " " << this->patronymic << endl;
         cout << "Оценки: " << this->marks[0] << " " << this->marks[1] << " " << this->marks[2] << " " << endl;
         cout << "Наличие стипендии: ";
         if (this->grants) cout << "+";
@@ -113,15 +116,131 @@ public:
 
 int Student::quantity = 0;
 
+class Vector {
+    VEC_TYPE **vec;
+    int size;
+    int capacity;
+public:
+    Vector() {
+        vec = new class VEC_TYPE *[VEC_BLOCK_SIZE];
+        size = 0;
+        capacity = VEC_BLOCK_SIZE;
+    }
+
+    int len() {
+        return this->size;
+    }
+
+    void append(VEC_TYPE *element) {
+        if (size >= capacity) {
+            VEC_TYPE **tmp = new class VEC_TYPE *[this->size];
+            memcpy(tmp, this->vec, sizeof(VEC_TYPE *) * this->size);
+            this->vec = new class VEC_TYPE *[this->size + VEC_BLOCK_SIZE];
+            memcpy(this->vec, tmp, sizeof(VEC_TYPE *) * this->size);
+            delete[] tmp;
+            capacity += VEC_BLOCK_SIZE;
+        }
+        this->vec[size++] = element;
+    }
+
+    VEC_TYPE *get(int index) {
+        return this->vec[index];
+    }
+
+    void pop() {
+        if (size == 0) {
+            cout << "Нельзя удалить ничего!" << endl;
+            return;
+        }
+        if ((capacity - size) % VEC_BLOCK_SIZE == 0) {
+            VEC_TYPE **tmp = new class VEC_TYPE *[this->size - VEC_BLOCK_SIZE];
+            memcpy(tmp, this->vec, sizeof(VEC_TYPE *) * this->size - VEC_BLOCK_SIZE);
+            delete[] this->vec;
+            this->vec = tmp;
+            capacity -= VEC_BLOCK_SIZE;
+        }
+        this->vec[--size] = nullptr;
+    }
+
+    int search(Student *element) {
+        for (int i = 0; i < this->size; i++) {
+            if (vec[i] == element) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    void sort() {
+        bool is_sorted = false;
+        while (!is_sorted) {
+            is_sorted = true;
+            for (int i = 0; i < this->size - 1; i++) {
+                if (this->vec[i] < this->vec[i + 1]) {
+                    is_sorted = false;
+                    VEC_TYPE *tmp = this->vec[i];
+                    this->vec[i] = this->vec[i + 1];
+                    this->vec[i + 1] = tmp;
+                }
+            }
+        }
+    }
+};
+
+struct Buffer {
+    char surname[BUFF_SIZE];
+    char name[BUFF_SIZE];
+    char patronymic[BUFF_SIZE];
+    short int marks[3];
+    char dob[BUFF_SIZE];
+};
+
 int main() {
-    short int marks[3] = {3, 3, 3};
-    Student Ivan("Ivanov", "Ivan", "Ivanovich", marks, "00.00.0000");
-    //short int marks_2[3] = {5, 5, 5};
-    //Student Danya("Golovachev", "Danila", "Andreevich", marks_2, "00.00.0000");
-    Ivan.print();
-    Student Ivan2 = Ivan.copy();
-    Ivan2.print();
-    //Danya.print();
-    //Danya.~Student();
-    return 0;
+    Vector vec;
+    char mode;
+    loop {
+        cout << "1. Ввести нового студента\n"
+                "2. Вывести всех студентов\n"
+                "3. Удалить последнего студента\n"
+                "4. Сортировать список студентов\n"
+                "5. Выйти из программы\n"
+                "Выберете режим работы: ";
+        cin >> mode;
+        switch (mode) {
+            case '1': {
+                Buffer buff{};
+                cout << "Введите фамилию: " << endl;
+                cin >> buff.surname;
+                cout << "Введите имя: " << endl;
+                cin >> buff.name;
+                cout << "Введите отчество: " << endl;
+                cin >> buff.patronymic;
+                cout << "Введите дату рождения в формате DD.MM.YYYY: " << endl;
+                cin >> buff.dob;
+                cout << "Введите первую оценку: " << endl;
+                cin >> buff.marks[0];
+                cout << "Введите вторую оценку: " << endl;
+                cin >> buff.marks[1];
+                cout << "Введите третью оценку: " << endl;
+                cin >> buff.marks[2];
+                auto *tmp = new Student(buff.surname, buff.name, buff.patronymic, buff.marks, buff.dob);
+                vec.append(tmp);
+                break;
+            }
+            case '2':
+                for (int i = 0; i < vec.len(); i++) vec.get(i)->print();
+                break;
+            case '3':
+                vec.pop();
+                break;
+            case '4':
+                vec.sort();
+                break;
+            case '5':
+                return 0;
+            default:
+                cout << "Это не 1, не 2, не 3, не 4 и даже не 5" << endl;
+        }
+
+    }
 }
