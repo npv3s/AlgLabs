@@ -79,15 +79,15 @@ public:
     bool operator>(const Student &s) {
         if (this == &s) return false;
         char *name_1, *name_2;
-        unsigned long size_1 = strlen(s.name) + strlen(s.surname) + strlen(s.patronymic) - 2;
-        unsigned long size_2 = strlen(this->name) + strlen(this->surname) + strlen(this->patronymic) - 2;
+        unsigned long size_1 = strlen(s.surname) + strlen(s.name) + strlen(s.patronymic) - 2;
+        unsigned long size_2 = strlen(this->surname) + strlen(this->name) + strlen(this->patronymic) - 2;
         name_1 = new char[size_1];
         name_2 = new char[size_2];
-        strcpy(name_1, s.name);
-        strcpy(strchr(name_1, '\0'), s.surname);
+        strcpy(name_1, s.surname);
+        strcpy(strchr(name_1, '\0'), s.name);
         strcpy(strchr(name_1, '\0'), s.patronymic);
-        strcpy(name_2, this->name);
-        strcpy(strchr(name_2, '\0'), this->surname);
+        strcpy(name_2, this->surname);
+        strcpy(strchr(name_2, '\0'), this->name);
         strcpy(strchr(name_2, '\0'), this->patronymic);
         bool out = false;
         for (int i = 0; i < size_1 < size_2 ? size_1 : size_2; i++) {
@@ -125,6 +125,10 @@ public:
         vec = new class VEC_TYPE *[VEC_BLOCK_SIZE];
         size = 0;
         capacity = VEC_BLOCK_SIZE;
+    }
+
+    ~Vector() {
+        delete[] this->vec;
     }
 
     int len() {
