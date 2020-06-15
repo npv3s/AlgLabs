@@ -27,14 +27,17 @@ public:
         this->grants = false;
     }
 
-    Student(char *surname, char *name, char *patronymic, short int marks[3], char *dob) {
+    Student(char *surname, char *name, char *patronymic, const short int marks[3], char *dob) {
         this->surname = new char[strlen(surname) + 1];
         this->name = new char[strlen(name) + 1];
         this->patronymic = new char[strlen(patronymic) + 1];
         strcpy(this->surname, surname);
         strcpy(this->name, name);
         strcpy(this->patronymic, patronymic);
-        memcpy(this->marks, marks, sizeof(short int) * 3);
+        //memcpy(this->marks, marks, sizeof(short int) * 3);
+        for (int i = 0; i < 3; i++) {
+            this->marks[i] = marks[i];
+        }
         this->dob = new char[strlen(dob) + 1];
         strcpy(this->dob, dob);
         Student::quantity++;
@@ -180,7 +183,7 @@ public:
         while (!is_sorted) {
             is_sorted = true;
             for (int i = 0; i < this->size - 1; i++) {
-                if (this->vec[i] < this->vec[i + 1]) {
+                if ((*this->vec[i + 1]) > (*this->vec[i])) {
                     is_sorted = false;
                     VEC_TYPE *tmp = this->vec[i];
                     this->vec[i] = this->vec[i + 1];
