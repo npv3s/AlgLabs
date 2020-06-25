@@ -1,0 +1,7 @@
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   8892   308 ?        Ssl  17:12   0:00 /init
+root         5  0.0  0.0   8896   212 tty1     Ss   17:12   0:00 /init
+npv3s        6  0.0  0.0  16928  3704 tty1     S    17:12   0:01 -bash
+root        78  0.0  0.0  19468   836 ?        Ss   17:12   0:00 /usr/sbin/sshd
+npv3s      514  0.0  0.0  15276  1616 tty1     S    18:21   0:00 bash script.sh
+npv3s      523  0.0  0.0  17384  1968 tty1     R    18:21   0:00 ps aux

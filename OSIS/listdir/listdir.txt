@@ -1,0 +1,2 @@
+total 0
+-rw-rw-rw- 1 npv3s npv3s 0 Feb  3 17:14 swap.txt

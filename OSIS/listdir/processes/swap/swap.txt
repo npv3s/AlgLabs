@@ -1,0 +1,3 @@
+SwapCached:            0 kB
+SwapTotal:      48234496 kB
+SwapFree:       48219372 kB
