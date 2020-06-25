@@ -36,5 +36,6 @@ int main() {
     print(array2, 10);
     sort(array2, 10);
     print(array2, 10);
+
     return 0;
 }
