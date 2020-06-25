@@ -19,7 +19,7 @@
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
-
+CMakeLists.txt
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
@@ -71,7 +71,7 @@ fabric.properties
 */.idea/*
 */*/cmake-build-debug/*
 */*/.idea/*
-*.txt
+
 */target/*
 *.o
 */.ipynb_checkpoints/*
