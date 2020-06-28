@@ -9,8 +9,8 @@ int main() {
     for (int i : b)
         search_insert(root, i);
     print_tree(root, 0);
-    delete_it(root, root);
-    delete_it(root, root->right);
+    delete_it(root, search_insert(root, 2));
+    delete_it(root, search_insert(root, 3));
     cout << endl;
     print_tree(root, 0);
     cout << endl;

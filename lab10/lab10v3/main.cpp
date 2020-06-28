@@ -1,9 +1,8 @@
-#include <stdio.h>
+#include <cstdio>
 
 int main() {
-    //char text[256];
-    //gets(text);
-    char text[256] = "Aa. Bbbbb ccc dddddd.";
+    char text[256];
+    fgets(text, 255, stdin);
     int point[2] = {-1, -1};
     for (int i=0; i < 256; i++) {
         if (text[i] == '.') {

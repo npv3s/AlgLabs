@@ -41,7 +41,6 @@ int main() {
             int tmp_i = (int) stod(line);
             cout.setf(ios::left);
             cout.fill('#');
-            //cout.precision(4);
             cout.width(7);
             cout << tmp_i << endl;
         } else if (is_float(line)) {

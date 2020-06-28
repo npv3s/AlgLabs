@@ -7,7 +7,7 @@ int main() {
     int mode;
     Node *root = nullptr;
     Node *root2 = nullptr;
-    root = first("Машина", "Car");
+    /*root = first("Car", "Машина");
     search_insert(root, "Apple", "Яблоко", 0, false);
     search_insert(root, "Year", "Год", 0, false);
     search_insert(root, "Time", "Время", 0, false);
@@ -33,6 +33,7 @@ int main() {
     root2 = nullptr;
     root2 = rebuild_tree(root, root2);
     print_tree(root2, 1);
+*/
     while (true) {
         cout << "Выберете режим работы:\n"
                 "1. Новая пара слов\n"

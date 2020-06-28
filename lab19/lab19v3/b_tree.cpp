@@ -1,7 +1,3 @@
-//
-// Created by npv3s on 18.05.2020.
-//
-
 #include <iostream>
 #include "b_tree.h"
 

@@ -1,7 +1,3 @@
-//
-// Created by npv3s on 18.05.2020.
-//
-
 #include <iostream>
 #include <cstring>
 #include "b_tree.h"
@@ -18,7 +14,7 @@ char *get_world(Node *root, char *word) {
     return tmp->rus;
 }
 
-Node *first(char *rus, char *eng) {
+Node *first(char *eng, char *rus) {
     Node *pv = new Node;
     pv->eng = new char[strlen(eng) + 1];
     pv->rus = new char[strlen(rus) + 1];
@@ -87,7 +83,7 @@ void print_sorted_tree(Node *p) {
 Node *rebuild_tree(Node *p, Node *s) {
     if (p != nullptr) {
         if (s == nullptr)
-            s = first(p->rus, p->eng);
+            s = first(p->eng, p->rus);
         else
             search_insert(s, p->eng, p->rus, p->counter, true);
         if (p->left != nullptr) rebuild_tree(p->left, s);

@@ -39,15 +39,10 @@ int main() {
     }
 
     string tmp;
-    vector<string> raw;
-    while (getline(myfile, tmp))
-        raw.push_back(tmp);
-    myfile.close();
-
     vector<double> vec;
-    vec.reserve(raw.size());
-    for (const string &line : raw)
-        vec.push_back(stod(line));
+    while (getline(myfile, tmp))
+        vec.push_back(stod(tmp));
+    myfile.close();
 
     print(vec);
     vec = sort(vec);

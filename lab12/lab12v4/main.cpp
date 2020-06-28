@@ -18,11 +18,13 @@ int count(int matrix[N][M]) {
 
 int main() {
     int m1[N][M], m2[N][M];
+    printf("Введите %d чисел первой матрицы\n", M*N);
     for (int i = 0; i < N; i++) {
         for (int y = 0; y < M; y++) {
             scanf("%d", &m1[i][y]);
         }
     }
+    printf("Введите %d чисел второй матрицы\n", M*N);
     for (int i = 0; i < N; i++) {
         for (int y = 0; y < M; y++) {
             scanf("%d", &m2[i][y]);
@@ -31,7 +33,7 @@ int main() {
     int c1 = count(m1), c2 = count(m2);
     if (c1 > c2) {
         printf("Matrix 1 (%d) > Matrix 2 (%d)\n", c1, c2);
-    } if (c1 < c2) {
+    } else if (c1 < c2) {
         printf("Matrix 1 (%d) < Matrix 2 (%d)\n", c1, c2);
     } else {
         printf("Matrix 1 (%d) = Matrix 2 (%d)\n", c1, c2);

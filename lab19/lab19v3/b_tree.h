@@ -1,7 +1,3 @@
-//
-// Created by npv3s on 18.05.2020.
-//
-
 #ifndef LAB19V3_B_TREE_H
 #define LAB19V3_B_TREE_H
 
